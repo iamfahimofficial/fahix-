@@ -2,356 +2,396 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fahix | World's Trusted Digital Marketplace</title>
+    <meta name="viewport" content="width=1200">
     
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Hind+Siliguri:wght@300;500;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Fahix | Premium Global Marketplace</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Hind+Siliguri:wght@300;400;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- CSS VARIABLES & RESET --- */
+        /* --- CSS VARIABLES --- */
         :root {
-            --primary: #ff9900; /* Amazon Orange */
-            --secondary: #131921; /* Amazon Dark Blue */
-            --accent: #28a745; /* Success Green for BD */
-            --light: #f3f3f3;
-            --dark: #232f3e;
-            --text-gray: #555;
+            --primary: #ff9900;       /* Amazon Orange */
+            --primary-hover: #e88b00;
+            --secondary: #131921;     /* Dark Blue */
+            --dark-gray: #232f3e;     /* Lighter Dark Blue */
+            --success: #28a745;       /* BD Green */
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
+        /* --- GLOBAL RESET --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: var(--light); color: #333; line-height: 1.6; }
+        body { background-color: var(--bg-light); color: var(--text-main); min-width: 1200px; /* Force minimum width */ }
 
-        /* Typography for Languages */
+        /* Languages */
         .bn { font-family: 'Hind Siliguri', sans-serif; }
-        .ar { font-family: 'Amiri', serif; direction: rtl; }
+        .ar { font-family: 'Amiri', serif; }
 
-        /* --- TOP BAR (INFO HEADER) --- */
+        /* --- UTILITIES --- */
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
+        .container { width: 1150px; margin: 0 auto; }
+
+        /* --- TOP BAR --- */
         .top-bar {
             background-color: var(--secondary);
-            color: white;
-            padding: 8px 5%;
-            display: flex;
-            justify-content: space-between;
+            color: #ddd;
+            padding: 10px 0;
             font-size: 13px;
             border-bottom: 1px solid #3a4553;
         }
-        .top-info a { color: #ccc; text-decoration: none; margin-right: 15px; transition: 0.3s; }
-        .top-info a:hover { color: var(--primary); }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .contact-info i { margin-right: 8px; color: var(--primary); }
+        .contact-info span { margin-right: 20px; }
 
-        /* --- MAIN HEADER --- */
+        /* --- HEADER --- */
         header {
-            background-color: var(--dark);
-            padding: 15px 5%;
+            background-color: var(--dark-gray);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--white);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo { font-size: 30px; font-weight: 800; color: var(--white); text-transform: uppercase; letter-spacing: 1px; }
         .logo span { color: var(--primary); }
 
-        nav ul { list-style: none; display: flex; gap: 25px; }
-        nav ul li a {
+        nav ul { display: flex; gap: 30px; }
+        nav ul li a { color: #fff; font-size: 14px; font-weight: 500; text-transform: uppercase; padding: 5px 0; position: relative; }
+        nav ul li a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background: var(--primary); transition: 0.3s; }
+        nav ul li a:hover::after { width: 100%; }
+        nav ul li a:hover { color: var(--primary); }
+
+        .header-btn {
+            background-color: var(--success);
             color: white;
-            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 600;
             font-size: 14px;
-            font-weight: 500;
-            text-transform: uppercase;
-            padding-bottom: 5px;
-            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        nav ul li a:hover { color: var(--primary); border-bottom: 2px solid var(--primary); }
+        .header-btn:hover { background-color: #218838; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); }
 
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(19, 25, 33, 0.8), rgba(19, 25, 33, 0.8)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background: linear-gradient(rgba(19, 25, 33, 0.85), rgba(19, 25, 33, 0.85)), url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
-            height: 90vh;
+            height: 600px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
-            padding: 20px;
+            position: relative;
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 30px; color: #ddd; }
-        .hero-badges { display: flex; gap: 15px; margin-bottom: 35px; }
-        .h-badge { background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 50px; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2); }
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        .tagline { display: inline-block; background: rgba(255, 153, 0, 0.2); color: var(--primary); border: 1px solid var(--primary); padding: 5px 15px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 20px; }
         
-        .cta-group { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .btn { padding: 15px 40px; border-radius: 5px; font-weight: bold; text-decoration: none; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px; }
-        .btn-bd { background-color: var(--accent); color: white; }
-        .btn-bd:hover { background-color: #218838; transform: translateY(-3px); }
-        .btn-global { background-color: var(--primary); color: var(--secondary); }
-        .btn-global:hover { background-color: #e68a00; transform: translateY(-3px); }
+        .hero h1 { font-size: 3.8rem; font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
+        .hero h2 { font-size: 1.8rem; font-weight: 400; color: #e0e0e0; margin-bottom: 10px; }
+        .hero h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 30px; }
+        
+        .hero-btns { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
+        .btn { padding: 15px 35px; border-radius: 5px; font-weight: 600; font-size: 16px; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; }
+        
+        .btn-primary { background: var(--primary); color: var(--secondary); }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-3px); }
+        
+        .btn-outline { background: transparent; border: 2px solid white; color: white; }
+        .btn-outline:hover { background: white; color: var(--secondary); transform: translateY(-3px); }
 
-        /* --- SECTION STYLES --- */
-        .section { padding: 80px 5%; max-width: 1300px; margin: 0 auto; }
-        .sec-header { text-align: center; margin-bottom: 60px; }
-        .sec-header h2 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 10px; }
-        .sec-header p { color: var(--text-gray); font-size: 1.1rem; }
-        .divider { height: 4px; width: 80px; background: var(--primary); margin: 0 auto; }
+        /* --- SECTIONS COMMON --- */
+        .section { padding: 80px 0; }
+        .sec-title { text-align: center; margin-bottom: 60px; }
+        .sec-title h2 { font-size: 2.5rem; color: var(--secondary); font-weight: 700; position: relative; display: inline-block; padding-bottom: 15px; }
+        .sec-title h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--primary); border-radius: 2px; }
+        .sec-title p { color: var(--text-light); margin-top: 15px; font-size: 1.1rem; }
 
-        /* --- PRODUCTS GRID --- */
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .p-card {
+        /* --- PRODUCTS --- */
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .s-card {
             background: white;
             padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            border-bottom: 3px solid transparent;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: 0.4s;
+            border-top: 4px solid transparent;
             text-align: center;
         }
-        .p-card:hover { transform: translateY(-10px); border-bottom: 3px solid var(--primary); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .p-icon { font-size: 50px; color: var(--primary); margin-bottom: 20px; }
-        .p-card h3 { margin-bottom: 15px; color: var(--secondary); }
-        .p-list { list-style: none; text-align: left; margin-top: 20px; }
-        .p-list li { margin-bottom: 10px; font-size: 0.95rem; color: #666; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .p-list li i { color: var(--accent); margin-right: 10px; }
-
-        /* --- FOUNDER & CEO --- */
-        .ceo-wrapper { background-color: var(--secondary); color: white; border-radius: 20px; overflow: hidden; display: flex; flex-wrap: wrap; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
-        .ceo-content { padding: 60px; flex: 2; }
-        .ceo-sidebar { background-color: #1a222d; padding: 60px 40px; flex: 1; border-left: 1px solid #333; display: flex; flex-direction: column; justify-content: center; }
+        .s-card:hover { transform: translateY(-10px); border-top-color: var(--primary); }
         
-        .ceo-content h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 5px; }
-        .ceo-role { font-size: 1.1rem; color: #aaa; margin-bottom: 25px; display: block; font-weight: 300; letter-spacing: 2px; }
-        .ceo-bio { color: #ddd; margin-bottom: 20px; font-size: 1.05rem; }
+        .s-icon { width: 80px; height: 80px; background: rgba(255, 153, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 32px; color: var(--primary); }
         
-        .contact-row { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .contact-row i { color: var(--primary); width: 20px; }
-        .contact-row a { color: white; text-decoration: none; transition: 0.2s; }
-        .contact-row a:hover { color: var(--primary); }
+        .s-card h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--secondary); }
+        .s-card .sub-text { font-size: 1rem; color: var(--text-light); margin-bottom: 20px; display: block; }
+        
+        .feature-list { text-align: left; margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
+        .feature-list li { margin-bottom: 12px; color: #555; display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
+        .feature-list li i { color: var(--success); }
 
-        /* --- CONTACT TABLE --- */
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px; }
-        .c-box { background: white; padding: 30px; border-radius: 12px; border: 1px solid #eee; }
-        .c-box h3 { border-bottom: 2px solid var(--light); padding-bottom: 15px; margin-bottom: 20px; color: var(--secondary); }
-        .c-item { margin-bottom: 15px; display: flex; gap: 15px; align-items: center; }
-        .c-item i { background: var(--light); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--secondary); }
+        /* --- CEO SECTION --- */
+        .ceo-section { background-color: white; }
+        .ceo-box {
+            display: flex;
+            background: var(--secondary);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            color: white;
+        }
+        .ceo-info { padding: 60px; flex: 1.5; }
+        .ceo-contact { background: #1a222d; padding: 60px 40px; flex: 1; border-left: 1px solid #333; display: flex; flex-direction: column; justify-content: center; }
+
+        .ceo-name { font-size: 2.5rem; color: var(--primary); font-weight: 700; margin-bottom: 5px; }
+        .ceo-title { letter-spacing: 3px; font-size: 0.9rem; color: #aaa; text-transform: uppercase; display: block; margin-bottom: 30px; }
+        .ceo-quote { font-style: italic; font-size: 1.1rem; line-height: 1.8; color: #ddd; margin-bottom: 20px; }
+        
+        .contact-row { margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+        .contact-row i { width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); }
+        .contact-row a { color: #ccc; font-size: 1.05rem; }
+        .contact-row a:hover { color: var(--primary); padding-left: 5px; }
+
+        /* --- CONTACT GRID --- */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .c-card { background: white; padding: 40px; border-radius: 12px; border: 1px solid #e1e1e1; }
+        .c-card h3 { border-bottom: 2px solid var(--bg-light); padding-bottom: 15px; margin-bottom: 25px; color: var(--secondary); font-size: 1.4rem; display: flex; align-items: center; gap: 10px; }
+        
+        .c-detail { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+        .c-detail i { color: var(--secondary); font-size: 18px; margin-top: 5px; }
+        .c-detail strong { display: block; color: var(--secondary); font-size: 0.95rem; margin-bottom: 2px; }
+        .c-detail span, .c-detail a { color: #666; font-size: 1rem; }
+        .bd-link { color: var(--success) !important; font-weight: 700; text-decoration: underline; }
 
         /* --- FOOTER --- */
-        footer { background-color: #0d1117; color: #8b949e; padding: 70px 5% 20px; font-size: 0.9rem; }
-        .footer-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px; }
-        .f-col h4 { color: white; margin-bottom: 20px; font-size: 1.1rem; }
-        .f-col ul { list-style: none; }
-        .f-col ul li { margin-bottom: 12px; }
-        .f-col ul li a { color: #8b949e; text-decoration: none; transition: 0.2s; }
-        .f-col ul li a:hover { color: var(--primary); padding-left: 5px; }
+        footer { background-color: #0d1117; color: #8b949e; padding: 70px 0 30px; margin-top: 50px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
         
-        .footer-bottom { border-top: 1px solid #30363d; padding-top: 20px; text-align: center; display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .f-about p { margin-top: 15px; line-height: 1.6; }
+        .f-head { color: white; font-size: 1.1rem; margin-bottom: 25px; font-weight: 600; }
+        .f-links li { margin-bottom: 12px; }
+        .f-links a { color: #8b949e; font-size: 0.95rem; }
+        .f-links a:hover { color: var(--primary); padding-left: 5px; }
+        
+        .socials { display: flex; gap: 15px; margin-top: 20px; }
+        .socials a { width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; }
+        .socials a:hover { background: var(--primary); transform: translateY(-3px); }
 
-        /* Mobile Fixes */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .top-bar { flex-direction: column; text-align: center; gap: 10px; }
-            nav ul { display: none; } /* Hide nav links on mobile for simplicity in this code */
-            .ceo-wrapper { flex-direction: column; }
-            .ceo-sidebar { border-left: none; border-top: 1px solid #333; padding: 30px; }
-        }
+        .footer-bottom { border-top: 1px solid #30363d; padding-top: 25px; display: flex; justify-content: space-between; align-items: center; }
+
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <div class="top-info">
-            <i class="fas fa-envelope"></i> support@fahix.com &nbsp;|&nbsp; 
-            <i class="fas fa-phone-alt"></i> +8801317621550 (BD)
-        </div>
-        <div class="top-lang">
-            🌍 Language: <strong>English</strong> | <span class="bn">বাংলা</span> | <span class="ar">العربية</span>
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-envelope"></i> support@fahix.com</span>
+                <span><i class="fas fa-phone-alt"></i> +8801317621550 (Bangladesh)</span>
+            </div>
+            <div class="lang-info">
+                Language: <strong>English</strong> &nbsp;|&nbsp; <span class="bn">বাংলা</span> &nbsp;|&nbsp; <span class="ar">العربية</span>
+            </div>
         </div>
     </div>
 
     <header>
-        <div class="logo">FAHIX<span>.</span></div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#ceo">Founder</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="https://sites.google.com/view/fbindeals" class="btn btn-bd" style="padding: 10px 20px; font-size: 14px;">
-            Shop BD <i class="fas fa-shopping-cart"></i>
-        </a>
+        <div class="container">
+            <div class="logo">FAHIX<span>.</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#founder">Founder</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="https://sites.google.com/view/fbindeals" class="header-btn" target="_blank">
+                <i class="fas fa-shopping-bag"></i> Shop BD
+            </a>
+        </div>
     </header>
 
     <section class="hero">
-        <div class="hero-badges">
-            <span class="h-badge"><i class="fab fa-amazon"></i> Amazon Partner</span>
-            <span class="h-badge"><i class="fas fa-shipping-fast"></i> Global Delivery</span>
-        </div>
-        
-        <h1>One Platform. Global Solutions.</h1>
-        <h2 class="bn" style="font-size: 1.5rem; margin-bottom: 10px; color: #ddd;">আপনার বিশ্বস্ত গ্লোবাল ডিজিটাল মার্কেটপ্লেস</h2>
-        <h3 class="ar" style="font-size: 1.8rem; margin-bottom: 25px; color: var(--primary);">المتجر العالمي الموثوق به</h3>
-        
-        <p>We deliver <strong>Daily Essentials</strong> & <strong>Digital Products</strong> worldwide via Amazon Logistics. From Dhaka to New York, we are at your doorstep.</p>
-        
-        <div class="cta-group">
-            <a href="https://sites.google.com/view/fbindeals" class="btn btn-bd">
-                <i class="fas fa-flag"></i> Visit BD Shop
-            </a>
-            <a href="https://fahix.com" class="btn btn-global">
-                <i class="fas fa-globe-americas"></i> Global Store
-            </a>
-        </div>
-    </section>
-
-    <section class="section" id="products">
-        <div class="sec-header">
-            <h2>Our Premium Categories</h2>
-            <div class="divider"></div>
-            <p style="margin-top: 15px;">Discover what we ship globally every day</p>
-        </div>
-
-        <div class="products-grid">
-            <div class="p-card">
-                <i class="fas fa-shopping-basket p-icon"></i>
-                <h3>Daily Essentials</h3>
-                <p class="bn">প্রতিদিনের প্রয়োজনীয় পণ্য</p>
-                <ul class="p-list">
-                    <li><i class="fas fa-check-circle"></i> Fresh Groceries</li>
-                    <li><i class="fas fa-check-circle"></i> Health & Personal Care</li>
-                    <li><i class="fas fa-check-circle"></i> Baby Products</li>
-                    <li><i class="fas fa-check-circle"></i> Household Items</li>
-                </ul>
-            </div>
-
-            <div class="p-card">
-                <i class="fas fa-laptop-code p-icon"></i>
-                <h3>Digital Services</h3>
-                <p class="bn">ডিজিটাল ও সফটওয়্যার সেবা</p>
-                <ul class="p-list">
-                    <li><i class="fas fa-check-circle"></i> Gift Cards & Top-ups</li>
-                    <li><i class="fas fa-check-circle"></i> Premium Software Keys</li>
-                    <li><i class="fas fa-check-circle"></i> Streaming Subs (Netflix/Prime)</li>
-                    <li><i class="fas fa-check-circle"></i> Developer Tools</li>
-                </ul>
-            </div>
-
-            <div class="p-card">
-                <i class="fab fa-amazon p-icon"></i>
-                <h3>Amazon Logistics</h3>
-                <p class="bn">আন্তর্জাতিক শিপিং পার্টনার</p>
-                <ul class="p-list">
-                    <li><i class="fas fa-check-circle"></i> Delivery to 200+ Countries</li>
-                    <li><i class="fas fa-check-circle"></i> Authentic Brand Warranty</li>
-                    <li><i class="fas fa-check-circle"></i> Door-to-Door Tracking</li>
-                    <li><i class="fas fa-check-circle"></i> Secure Packaging</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="ceo">
-        <div class="ceo-wrapper">
-            <div class="ceo-content">
-                <h2>Fahim Ahammad Mazumder</h2>
-                <span class="ceo-role">FOUNDER & CEO</span>
-                <p class="ceo-bio">
-                    "At Fahix, we are bridging the gap between local needs and global standards. Whether you are in Bangladesh or abroad, our mission is to ensure you get the best products with the reliability of Amazon's supply chain."
+        <div class="container">
+            <div class="hero-content">
+                <span class="tagline"><i class="fab fa-amazon"></i> Amazon Partnered Logistics</span>
+                <h1>Global Products.<br>Local Convenience.</h1>
+                <h2 class="bn">আপনার বিশ্বস্ত ডিজিটাল মার্কেটপ্লেস</h2>
+                <h3 class="ar">المتجر العالمي الموثوق به</h3>
+                
+                <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 30px;">
+                    We deliver <strong>Daily Essentials</strong> & <strong>Digital Products</strong> worldwide via Amazon Logistics. 
+                    Authentic products, fast delivery, and trusted service.
                 </p>
-                <p class="bn" style="color: #bbb; margin-top: 15px;">
-                    "ফাহিক্স-এ আমরা স্থানীয় চাহিদা এবং আন্তর্জাতিক মানের মধ্যে সেতুবন্ধন তৈরি করছি। সততা এবং প্রযুক্তির সমন্বয়ে আমরা সেরা সেবা দিতে প্রতিশ্রুতিবদ্ধ।"
-                </p>
-                <div style="margin-top: 30px;">
-                    <a href="https://www.fahimofficial.com" class="btn btn-global" style="font-size: 14px; padding: 10px 25px;">
-                        Visit Official Profile <i class="fas fa-arrow-right"></i>
+
+                <div class="hero-btns">
+                    <a href="https://sites.google.com/view/fbindeals" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-flag"></i> Visit BD Store
+                    </a>
+                    <a href="https://fahix.com" class="btn btn-outline" target="_blank">
+                        <i class="fas fa-globe"></i> Global Store
                     </a>
                 </div>
             </div>
-            <div class="ceo-sidebar">
-                <h4 style="color: white; margin-bottom: 20px; border-bottom: 1px solid #444; padding-bottom: 10px;">Direct Contact</h4>
-                
-                <div class="contact-row">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:me@fahimofficial.com">me@fahimofficial.com</a>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+            <div class="sec-title">
+                <h2>Our Premium Categories</h2>
+                <p>Discover what we ship globally every day with care</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="s-card">
+                    <div class="s-icon"><i class="fas fa-shopping-basket"></i></div>
+                    <h3>Daily Essentials</h3>
+                    <span class="sub-text bn">প্রতিদিনের প্রয়োজনীয় পণ্য</span>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Fresh Groceries & Food</li>
+                        <li><i class="fas fa-check-circle"></i> Health & Personal Care</li>
+                        <li><i class="fas fa-check-circle"></i> Baby Products & Toys</li>
+                        <li><i class="fas fa-check-circle"></i> Home & Kitchen Items</li>
+                    </ul>
                 </div>
-                <div class="contact-row">
-                    <i class="fas fa-globe"></i>
-                    <a href="https://www.fahimofficial.com">www.fahimofficial.com</a>
+
+                <div class="s-card">
+                    <div class="s-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Digital Services</h3>
+                    <span class="sub-text bn">ডিজিটাল ও সফটওয়্যার সেবা</span>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Gift Cards & Game Top-ups</li>
+                        <li><i class="fas fa-check-circle"></i> Premium Software Keys</li>
+                        <li><i class="fas fa-check-circle"></i> Streaming (Netflix/Prime)</li>
+                        <li><i class="fas fa-check-circle"></i> Developer Tools & APIs</li>
+                    </ul>
                 </div>
-                <div class="contact-row">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Headquarters: Fahix Global</span>
+
+                <div class="s-card">
+                    <div class="s-icon"><i class="fab fa-amazon"></i></div>
+                    <h3>Global Logistics</h3>
+                    <span class="sub-text bn">আন্তর্জাতিক শিপিং পার্টনার</span>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Shipping to 200+ Countries</li>
+                        <li><i class="fas fa-check-circle"></i> Authentic Brand Warranty</li>
+                        <li><i class="fas fa-check-circle"></i> Real-time Tracking</li>
+                        <li><i class="fas fa-check-circle"></i> Secure Amazon Packaging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="founder">
+        <div class="container">
+            <div class="sec-title">
+                <h2>Leadership</h2>
+            </div>
+            <div class="ceo-box">
+                <div class="ceo-info">
+                    <div class="ceo-name">Fahim Ahammad Mazumder</div>
+                    <span class="ceo-title">FOUNDER & CEO</span>
+                    <div class="ceo-quote">
+                        "At Fahix, we bridge the gap between local needs and global standards. Our mission is to ensure you get the best products with the reliability of Amazon's supply chain, no matter where you are."
+                    </div>
+                    <div class="ceo-quote bn" style="color: #aaa; margin-top: 15px;">
+                        "ফাহিক্স-এ আমরা স্থানীয় চাহিদা এবং আন্তর্জাতিক মানের মধ্যে সেতুবন্ধন তৈরি করছি। সততা এবং প্রযুক্তির সমন্বয়ে আমরা সেরা সেবা দিতে প্রতিশ্রুতিবদ্ধ।"
+                    </div>
+                    <a href="https://www.fahimofficial.com" class="btn btn-primary" style="margin-top: 20px; font-size: 14px; padding: 10px 25px;">
+                        View Official Profile <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="ceo-contact">
+                    <h4 style="color: white; margin-bottom: 25px; border-bottom: 1px solid #444; padding-bottom: 10px;">Direct Contact</h4>
+                    
+                    <div class="contact-row">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:me@fahimofficial.com">me@fahimofficial.com</a>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://www.fahimofficial.com" target="_blank">www.fahimofficial.com</a>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Fahix Global HQ</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="section" id="contact" style="background-color: white;">
-        <div class="sec-header">
-            <h2>Global & Regional Support</h2>
-            <div class="divider"></div>
-        </div>
-
-        <div class="contact-grid">
-            <div class="c-box">
-                <h3>🇧🇩 Bangladesh Operations</h3>
-                <div class="c-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <strong>Helpline:</strong><br>
-                        <a href="tel:+8801317621550" style="color:var(--accent); font-weight:bold; text-decoration:none;">+8801317621550</a>
-                    </div>
-                </div>
-                <div class="c-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Email Support:</strong><br>
-                        <a href="mailto:bdfahix@gmail.com" style="color:#555; text-decoration:none;">bdfahix@gmail.com</a>
-                    </div>
-                </div>
-                <div class="c-item">
-                    <i class="fas fa-link"></i>
-                    <div>
-                        <strong>Official Shop:</strong><br>
-                        <a href="https://site.google.com/view/fbindeals" target="_blank">bd.fahix.com</a>
-                    </div>
-                </div>
+        <div class="container">
+            <div class="sec-title">
+                <h2>Global Support Centers</h2>
+                <p>We are always here to help you</p>
             </div>
 
-            <div class="c-box">
-                <h3>🌎 International HQ</h3>
-                <div class="c-item">
-                    <i class="fas fa-headset"></i>
-                    <div>
-                        <strong>Global Support:</strong><br>
-                        <span>24/7 Digital Support Agent</span>
+            <div class="contact-grid">
+                <div class="c-card">
+                    <h3><img src="https://flagcdn.com/w40/bd.png" alt="BD" style="width: 25px;"> Bangladesh Operations</h3>
+                    
+                    <div class="c-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Helpline:</strong>
+                            <a href="tel:+8801317621550" style="color: var(--secondary); font-weight: bold;">+8801317621550</a>
+                        </div>
+                    </div>
+                    <div class="c-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email Support:</strong>
+                            <a href="mailto:bdfahix@gmail.com">bdfahix@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="c-detail">
+                        <i class="fas fa-link"></i>
+                        <div>
+                            <strong>Official Shop Link:</strong>
+                            <a href="https://sites.google.com/view/fbindeals" target="_blank" class="bd-link">sites.google.com/view/fbindeals</a>
+                        </div>
                     </div>
                 </div>
-                <div class="c-item">
-                    <i class="fas fa-envelope-open-text"></i>
-                    <div>
-                        <strong>Email Support:</strong><br>
-                        <a href="mailto:support@fahix.com" style="color:#555; text-decoration:none;">support@fahix.com</a>
+
+                <div class="c-card">
+                    <h3><i class="fas fa-globe-americas" style="color: var(--primary);"></i> International HQ</h3>
+                    
+                    <div class="c-detail">
+                        <i class="fas fa-headset"></i>
+                        <div>
+                            <strong>Global Support:</strong>
+                            <span>24/7 Digital Support Agent</span>
+                        </div>
                     </div>
-                </div>
-                <div class="c-item">
-                    <i class="fas fa-globe"></i>
-                    <div>
-                        <strong>Global Portal:</strong><br>
-                        <a href="https://fahix.com" target="_blank">fahix.com</a>
+                    <div class="c-detail">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <div>
+                            <strong>Email Support:</strong>
+                            <a href="mailto:support@fahix.com">support@fahix.com</a>
+                        </div>
+                    </div>
+                    <div class="c-detail">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <strong>Global Portal:</strong>
+                            <a href="https://fahix.com" target="_blank" style="color: var(--primary); font-weight: bold;">fahix.com</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -359,42 +399,57 @@
     </section>
 
     <footer>
-        <div class="footer-cols">
-            <div class="f-col">
-                <div class="logo" style="font-size: 24px; margin-bottom: 15px;">FAHIX<span>.</span></div>
-                <p>Your trusted partner for global shopping via Amazon logistics and premium digital services.</p>
-            </div>
-            <div class="f-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="https://bd.fahix.com">Bangladesh Shop</a></li>
-                    <li><a href="https://fahix.com">Global Store</a></li>
-                    <li><a href="#products">Our Products</a></li>
-                </ul>
-            </div>
-            <div class="f-col">
-                <h4>Legal & Info</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="https://www.fahimofficial.com">Founder Profile</a></li>
-                </ul>
-            </div>
-            <div class="f-col">
-                <h4>Connect</h4>
-                <div style="display: flex; gap: 15px; font-size: 20px;">
-                    <a href="#" style="color: white;"><i class="fab fa-facebook"></i></a>
-                    <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
-                    <a href="#" style="color: white;"><i class="fab fa-linkedin"></i></a>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="f-about">
+                    <div class="logo" style="font-size: 24px;">FAHIX<span>.</span></div>
+                    <p>Your trusted partner for global shopping via Amazon logistics and premium digital services. Connecting Bangladesh to the World.</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="f-links">
+                    <div class="f-head">Quick Links</div>
+                    <ul>
+                        <li><a href="https://sites.google.com/view/fbindeals">Bangladesh Shop</a></li>
+                        <li><a href="https://fahix.com">Global Store</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#contact">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-links">
+                    <div class="f-head">Company</div>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="https://www.fahimofficial.com">Founder Profile</a></li>
+                    </ul>
+                </div>
+
+                <div class="f-links">
+                    <div class="f-head">Accepted Payments</div>
+                    <div style="font-size: 24px; color: #ccc; display: flex; gap: 10px; flex-wrap: wrap;">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <p style="font-size: 12px; margin-top: 10px;">bKash / Nagad Available for BD</p>
                 </div>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 Fahix Global Marketplace. All Rights Reserved.</p>
-            <p>Powered by <strong style="color: var(--primary);">Amazon Logistics</strong></p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fahix Global Marketplace. All Rights Reserved.</p>
+                <p>Powered by <strong style="color: var(--primary);">Amazon Logistics</strong></p>
+            </div>
         </div>
     </footer>
 
 </body>
-    </html>
+                                          </html>
